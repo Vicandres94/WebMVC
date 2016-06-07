@@ -12,11 +12,17 @@ namespace WebMantenimiento.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SalaId { get; set; }
+
         [Required]
+        [Display(Name = "Nombre de Sala")]
         public string NombreSala { get; set; }
+
         [ForeignKey("Piso")]
         public int PisoId { get; set; }
+
         public virtual Piso Piso { get; set; }
+
+
         public virtual List<Equipo> Equipos { get; set; }
     }
 }

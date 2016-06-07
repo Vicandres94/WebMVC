@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebMVC.Models;
 using WebMantenimiento.Models;
 
 namespace WebMVC.Controllers
 {
     public class UsuariosController : Controller
     {
-        private WebConext db = new WebConext();
+        private WebMVCContext db = new WebMVCContext();
 
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(u => u.Rol);
+            var usuarios = db.Usuarios.Include(u => u.Rol).Include(u => u.TipoDocumento);
             return View(usuarios.ToList());
         }
 
@@ -40,6 +41,7 @@ namespace WebMVC.Controllers
         public ActionResult Create()
         {
             ViewBag.RolId = new SelectList(db.Rols, "RolId", "Tipo_Rol");
+            ViewBag.TipoDocId = new SelectList(db.TipoDocumentoes, "TipoDocId", "Documento");
             return View();
         }
 
@@ -48,7 +50,7 @@ namespace WebMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,UserName,Password,Nombre,Apellido,TipoDocumento,Documento,FechaNacimiento,Carrera,Semestre,Estado,RolId")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "UserId,UserName,Password,Nombre,Apellido,TipoDocId,Documento,Carrera,Semestre,Estado,RolId")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +60,7 @@ namespace WebMVC.Controllers
             }
 
             ViewBag.RolId = new SelectList(db.Rols, "RolId", "Tipo_Rol", usuario.RolId);
+            ViewBag.TipoDocId = new SelectList(db.TipoDocumentoes, "TipoDocId", "Documento", usuario.TipoDocId);
             return View(usuario);
         }
 
@@ -74,6 +77,7 @@ namespace WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.RolId = new SelectList(db.Rols, "RolId", "Tipo_Rol", usuario.RolId);
+            ViewBag.TipoDocId = new SelectList(db.TipoDocumentoes, "TipoDocId", "Documento", usuario.TipoDocId);
             return View(usuario);
         }
 
@@ -82,7 +86,7 @@ namespace WebMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,UserName,Password,Nombre,Apellido,TipoDocumento,Documento,FechaNacimiento,Carrera,Semestre,Estado,RolId")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "UserId,UserName,Password,Nombre,Apellido,TipoDocId,Documento,Carrera,Semestre,Estado,RolId")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +95,7 @@ namespace WebMVC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.RolId = new SelectList(db.Rols, "RolId", "Tipo_Rol", usuario.RolId);
+            ViewBag.TipoDocId = new SelectList(db.TipoDocumentoes, "TipoDocId", "Documento", usuario.TipoDocId);
             return View(usuario);
         }
 

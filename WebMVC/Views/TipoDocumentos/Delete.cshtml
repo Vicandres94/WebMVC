@@ -1,4 +1,4 @@
-﻿@model WebMantenimiento.Models.Rol
+﻿@model WebMVC.Models.TipoDocumento
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,15 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Rol</h4>
+    <h4>TipoDocumento</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.prueba)
+            @Html.DisplayNameFor(model => model.Documento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.prueba)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Rol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Rol)
+            @Html.DisplayFor(model => model.Documento)
         </dd>
 
     </dl>

@@ -12,7 +12,9 @@ namespace WebMantenimiento.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RolId { get; set; }
+        
         [Required]
+        [Display(Name = "Rol")]
         public string Tipo_Rol { get; set; }
         public virtual List<Usuario> Usuarios { get; set; }
     }

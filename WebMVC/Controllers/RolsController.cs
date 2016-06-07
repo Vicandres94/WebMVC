@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebMVC.Models;
 using WebMantenimiento.Models;
 
 namespace WebMVC.Controllers
 {
     public class RolsController : Controller
     {
-        private WebConext db = new WebConext();
+        private WebMVCContext db = new WebMVCContext();
 
         // GET: Rols
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace WebMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RolId,Tipo_Rol")] Rol rol)
+        public ActionResult Create([Bind(Include = "RolId,prueba,Tipo_Rol")] Rol rol)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace WebMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RolId,Tipo_Rol")] Rol rol)
+        public ActionResult Edit([Bind(Include = "RolId,prueba,Tipo_Rol")] Rol rol)
         {
             if (ModelState.IsValid)
             {

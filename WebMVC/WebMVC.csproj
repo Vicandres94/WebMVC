@@ -206,14 +206,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\API\RolsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolsController.cs" />
+    <Compile Include="Controllers\TipoDocumentosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bloque.cs" />
     <Compile Include="Models\Equipo.cs" />
@@ -224,9 +225,10 @@
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Sala.cs" />
     <Compile Include="Models\Sede.cs" />
+    <Compile Include="Models\TipoDocumento.cs" />
     <Compile Include="Models\Universidad.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\WebConext.cs" />
+    <Compile Include="Models\WebMVCContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -256,7 +258,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -300,9 +304,15 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\TipoDocumentos\Create.cshtml" />
+    <Content Include="Views\TipoDocumentos\Delete.cshtml" />
+    <Content Include="Views\TipoDocumentos\Details.cshtml" />
+    <Content Include="Views\TipoDocumentos\Edit.cshtml" />
+    <Content Include="Views\TipoDocumentos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\API\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
